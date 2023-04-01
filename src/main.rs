@@ -1,6 +1,7 @@
 /*
 TODO:
     - Add reference to https://github.com/JoshMcguigan/bubble-shell in github proj
+    - Add support for ~ home directory alias
     - Use https://github.com/psinghal20/rush for further inspiration
     - Next features to start implementing https://www.gnu.org/software/bash/manual/html_node/Basic-Shell-Features.html#Basic-Shell-Features
  */
@@ -33,7 +34,8 @@ fn main() {
 
             match command {
                 "cd" => {
-                    // default to '/' as new directory if one was not provided
+                    // TODO: Replace /Users/hootan with ~, which finds current home
+                    // default to '~' as new directory if one was not provided
                     let new_dir = args.peekable().peek().map_or("/Users/hootan", |x| *x);
                     let root = Path::new(new_dir);
                     if let Err(e) = env::set_current_dir(&root) {
@@ -49,11 +51,11 @@ fn main() {
                     });
 
                     let stdout = if commands.peek().is_some() {
-                        // there is another command piped behind this one
+                        // there is another command piped after this one
                         // prepare to send output to the next command
                         Stdio::piped()
                     } else {
-                        // there are no more commands piped behind this one
+                        // there are no more commands piped after this one
                         // send output to shell stdout
                         Stdio::inherit()
                     };
