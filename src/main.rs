@@ -1,3 +1,10 @@
+/*
+TODO:
+    - Add reference to https://github.com/JoshMcguigan/bubble-shell in github proj
+    - Use https://github.com/psinghal20/rush for further inspiration
+    - Next features to start implementing https://www.gnu.org/software/bash/manual/html_node/Basic-Shell-Features.html#Basic-Shell-Features
+ */
+
 use std::env;
 use std::io::{stdin, stdout, Write};
 use std::path::Path;
@@ -27,7 +34,7 @@ fn main() {
             match command {
                 "cd" => {
                     // default to '/' as new directory if one was not provided
-                    let new_dir = args.peekable().peek().map_or("/", |x| *x);
+                    let new_dir = args.peekable().peek().map_or("/Users/hootan", |x| *x);
                     let root = Path::new(new_dir);
                     if let Err(e) = env::set_current_dir(&root) {
                         eprintln!("{}", e);
