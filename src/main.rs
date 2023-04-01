@@ -1,10 +1,8 @@
-/*
-TODO:
-    - Add reference to https://github.com/JoshMcguigan/bubble-shell in github proj
-    - Add support for ~ home directory alias
-    - Use https://github.com/psinghal20/rush for further inspiration
-    - Next features to start implementing https://www.gnu.org/software/bash/manual/html_node/Basic-Shell-Features.html#Basic-Shell-Features
- */
+// TODO:
+//  - Add reference to https://github.com/JoshMcguigan/bubble-shell in github proj
+//  - Add support for ~ home directory alias
+//  - Use https://github.com/psinghal20/rush for further inspiration
+//  - Next features to start implementing https://www.gnu.org/software/bash/manual/html_node/Basic-Shell-Features.html#Basic-Shell-Features
 
 use std::env;
 use std::io::{stdin, stdout, Write};
